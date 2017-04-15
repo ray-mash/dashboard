@@ -1,23 +1,31 @@
-<h1 CLASS="marginLeft35">FREQUENCY</h1>
-<section style="border: solid;">
+<div  ng-app="myApp" ng-controller="View1Ctrl as ctrl">
+<h1 class="marginLeft35">FREQUENCY</h1>
+<section style="border: solid;" class="jumbotron col-md-8">
   <div class="row marginLeft35">
     <div id="chart4" class="col-md-2">
-
       <p>Merge to Trunk</p>
-      <svg style="height:150px; width: 200px;"></svg>
+      <svg title="ray" style="height:150px; width: 200px;"></svg>
     </div>
     <div id="chart2" class="col-xs-1">
-      <!--<p>&nbsp</p>-->
       <p>Deploys to TEST</p>
       <svg style="height:150px; width: 200px;"></svg>
-      <p>Moving total over the last 3 weeks</p>
+      <p class="week">Moving total over the last 3 weeks</p>
     </div>
-    <!--<div id="chart2" class="col-xs-1">-->
-      <!--<h1>FREQUENCY</h1>-->
-      <!--<p>Merge to Trunk</p>-->
-      <!--<svg style="height:150px; width: 200px;"></svg>-->
-    <!--</div>-->
-
+    <div id="date" class="col-xs-1">{{ctrl.days}}ray
+      <div style="color: #2aabd2 !important;" class="jumbotron">{{$ctrl.days}}Ray</div>
+    </div>
   </div>
 </section>
-<!--<chart-component>Ray</chart-component>-->
+<section>
+  <div class="row marginLeft35">
+  <div id="chart1" class="col-xs-1">
+    <h1 class="marginLeft35">SECURITY</h1>
+  <svg style="height:150px; width: 200px;"></svg>
+  </div>
+  <div id="chart5" class="col-xs-1 marginLeft35">{{dayLastDeploy}}ray
+    <svg style="height:150px; width: 200px;"></svg>
+    <!--<div style="color: #2aabd2 !important;" class="jumbotron">{{$ctrl.dayLastDeploy}}Ray</div>-->
+  </div>
+  </div>
+</section>
+</div>

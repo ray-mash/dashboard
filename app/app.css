@@ -38,6 +38,9 @@
   width : 213px;
   float: left;
 }
+.week{
+  margin-left: -110px;
+}
 
 .marginLeft35{
   margin-left: 35px;
@@ -53,4 +56,35 @@
 }
 .marginBottom15{
   margin-bottom: 15px;
+}
+
+.square-box{
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  background: #4679BD;
+}
+.square-box:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.square-content{
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+}
+.square-content div {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.square-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: white
 }
