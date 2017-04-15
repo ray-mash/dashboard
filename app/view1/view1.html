@@ -1,6 +1,7 @@
-<div  ng-app="myApp" ng-controller="View1Ctrl as ctrl">
+<div  ng-app="myApp" ng-controller="View1Ctrl">
+  {{days}}
 <h1 class="marginLeft35">FREQUENCY</h1>
-<section style="border: solid;" class="jumbotron col-md-8">
+<section style="border: solid;" class="jumbotron col-md-7">
   <div class="row marginLeft35">
     <div id="chart4" class="col-md-2">
       <p>Merge to Trunk</p>
@@ -11,8 +12,8 @@
       <svg style="height:150px; width: 200px;"></svg>
       <p class="week">Moving total over the last 3 weeks</p>
     </div>
-    <div id="date" class="col-xs-1">{{ctrl.days}}ray
-      <div style="color: #2aabd2 !important;" class="jumbotron">{{$ctrl.days}}Ray</div>
+    <div id="date" class="col-xs-1">{{days}}ray
+      <div style="color: #2aabd2 !important;" class="jumbotron">{{days}}Ray</div>
     </div>
   </div>
 </section>

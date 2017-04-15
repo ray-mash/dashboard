@@ -26,11 +26,12 @@ angular.module('myApp.view1', ['ngRoute'])
 //       "<hr />headers: " + header +
 //       "<hr />config: " + config;
 // });
-.controller('View1Ctrl', ['$http', function($http) {
+.controller('View1Ctrl', ['$http','$scope', function($http,$scope) {
 var data = {
   "application": "steve-test",
   "pull_request_id": "1"
 };
+  $scope.days = 10;
   $http.get('/api/frequencies/deploy').then(function (response) {
         console.log(response);
       },
