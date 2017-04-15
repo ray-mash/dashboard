@@ -12,7 +12,7 @@ angular.module('myApp.view2', ['nvd3','ngRoute'])
 .controller('View2Ctrl', [ function() {
 
   drawChart('chart1',300,200);
-  drawChart('chart4',150,300);
+  // drawChart('chart4',150,300);
   drawChart('chart3',200,200);
 
   function drawChart(div, localHeight, localWidth) {

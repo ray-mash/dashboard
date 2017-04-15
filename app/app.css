@@ -24,8 +24,18 @@
   padding-right: 0.3em;
 }
 
+.my-border
+{
+  border: medium double rgb(250,0,255)
+}
+.div2 {
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 10px solid red;
+}
 #chart1, #chart2, #chart3 {
-  width : 400px;
+  width : 213px;
   float: left;
 }
 

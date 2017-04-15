@@ -29,15 +29,16 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', ['$http', function($http) {
 
   drawChart('chart2');
+  drawChart('chart4');
   function drawChart(div) {
     // var width = 400; var height = 400;
     // $http.get('/frequencies/deploy').then(function (response) {
-    $http.post('/frequencies/deploy').then(function (response) {
-      console.log(response);
-    },
-    function(error){
-      console.log(error);
-    });
+    // $http.post('/frequencies/deploy').then(function (response) {
+    //   console.log(response);
+    // },
+    // function(error){
+    //   console.log(error);
+    // });
 
 
     nv.addGraph(function () {
@@ -52,7 +53,9 @@ angular.module('myApp.view1', ['ngRoute'])
       d3.select("#" + div + " svg")
       .datum(exampleData())
       .call(chart);
-      nv.utils.windowResize(chart.update);
+      nv.utils.windowResize(function() {
+        chart.update();         //Renders the chart when window is resized.
+      });
       return chart;
     });
   }
@@ -66,11 +69,8 @@ angular.module('myApp.view1', ['ngRoute'])
               "value": 21
             }, {
               "label": "2017-04-05",
-              "value": 0
-            }, {
-              "label": "2017-03-04",
-              "value": 3
-            }, {
+              "value": 10
+            },{
               "label": "2017-02-04",
               "value": 19
             }]
