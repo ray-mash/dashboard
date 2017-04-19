@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.viewDashboard', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
+    templateUrl: 'viewDashboard/view1.html',
     controller: 'View1Ctrl as ctrl'
   });
 }])
@@ -39,12 +39,14 @@ var data = {
         console.log(error);
       });
 
-  // $scope.dayLastDeploy = 41;
+  $scope.dayLastDeploy = 41;
   drawCalendar('chart5');
   drawChart('chart2');
   // console.log($scope.dayLastDeploy);
   drawMultiBarChart('chart4');
   drawPieChart('chart1');
+  drawPieChart('security-chart');
+  drawPieChart('reliability-chart');
 
 
   function drawCalendar(div){
@@ -166,13 +168,13 @@ var data = {
         key: "Cumulative Return",
         values:
             [{
-              "label": "2017-04-04",
+              "label": "2017-03-04",
               "value": 21
             }, {
               "label": "2017-04-05",
               "value": 10
             },{
-              "label": "2017-02-04",
+              "label": "2017-04-04",
               "value": 19
             }]
       }
