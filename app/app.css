@@ -54,6 +54,9 @@
 .marginLeft10em{
   margin-left: 10em;
 }
+.marginLeft1em{
+  margin-left: 1em;
+}
 .marginLeft35{
   margin-left: 25px;
 }
@@ -99,6 +102,10 @@
   margin-bottom: 1.66%;
   overflow:hidden;
   padding-bottom: 8em; /* = width for a square aspect ratio */
+}
+.square-position{
+  margin-left: 40em;
+  margin-top: -17em;
 }
 .content {
   position:absolute;

@@ -1,4 +1,6 @@
 <div ng-app="myApp" ng-controller="View1Ctrl">
+ <div class="jumbotron container">
+   <h1> MYUPDATES <span class="btn-group"><button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span></h1></div>
   <h1 class="col-md-9">FREQUENCY</h1>
   <section style="border: solid;" class="row col-md-6 freq-align">
     <div class="row">
@@ -6,12 +8,17 @@
         <p>Merge to Trunk</p>
         <svg title="trunk" style="height:150px; width: 200px;"></svg>
       </div>
-      <div id="chart2" class="col-xs-1">
+      <!--<div id="chart2" class="col-xs-1">-->
+        <!--<p>Deploys to TEST</p>-->
+        <!--<svg style="height:150px; width: 200px;"></svg>-->
+        <!--<p class="week">Moving total over the last 3 weeks</p>-->
+      <!--</div>-->
+      <div id="chart2" class="col-xs-1 marginLeft35">
         <p>Deploys to TEST</p>
-        <svg style="height:150px; width: 200px;"></svg>
-        <p class="week">Moving total over the last 3 weeks</p>
+        <svg style="height:180px; width: 300px;"></svg>
+        <p class="week">Moving total over the last 3 weeks</p
       </div>
-      <div id="date" class="col-xs-1 square-box" style="border: solid;">
+      <div id="date" class="col-xs-1 square-box square-position" style="border: solid;">
         <div>Days since last successful deploy to Prod
           <div style="color: black !important;" class="content">{{days}} <p>Days</p></div>
         </div>
@@ -20,14 +27,20 @@
   </section>
   <div><h1>TESTING</h1>
     <section class="col-md-13">
-
       <div class="row testing-box" style="border: solid;">
-        <div id="chart1a" class="col-xs-1">
+        <div id="chart1a" class="col-xs-2">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                  <em class="col-xs-2">Most Places</em>
+              </div>
+            </div>
+          </nav>
 
           <svg style="height:150px; width: 200px;"></svg>
         </div>
-        <div id="chart5" class="col-xs-1 marginLeft35">{{dayLastDeploy}}
-          <svg style="height:150px; width: 200px;"></svg>
+        <div id="chart5" class="col-xs-1 marginLeft35">
+          <svg style="height:250px; width: 300px;"></svg>
         </div>
       </div>
     </section>
@@ -44,7 +57,7 @@
       </div>
       <div class="marginLeft15em">
         <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
-          <div>This period21
+          <div>This period
             <div style="color: black !important;" class="content"><h3>B+</h3></div>
             <div>Last scan: {{days}}: days ago</div>
           </div>
@@ -62,31 +75,43 @@
   <section class="col-xs-3 security-box">
     <h1 class="marginLeft35">RELIABILITY</h1>
     <div class="row padTop10" style="border: solid;">
+      <p class="marginLeft1em">Failed Deploys</p>
       <div id="reliability-chart" class="col-xs-1">
 
         <svg style="height:150px; width: 200px;"></svg>
       </div>
       <div class="marginLeft15em">
-        <div class="col-xs-2 square-box" style="border: solid;">
-          <div>Days since last successful deploy to Prod
-            <div style="color: black !important;" class="content">{{days}} <p>Days</p></div>
-          </div>
+        <div id="reliability-line-chart" class="col-xs-1">
+
+          <svg style="height:150px; width: 200px;"></svg>
         </div>
       </div>
     </div>
   </section>
   <section class="col-xs-3 security-box">
     <h1 class="marginLeft35">CODE QUALITY</h1>
-    <div class="row padTop10" style="border: solid;">
-      <div class="col-xs-1">
+    <div class="row marginLeft35" style="border: solid;">
+      <div id="code-quality" class="col-xs-2">
+        <p>Cyclomatic Complexity</p>
 
-        <svg style="height:150px; width: 200px;"></svg>
       </div>
-      <div class="col-xs-1 square-box marginLeft15em" style="border: solid;">
-        <div>Days since last successful deploy to Prod
-          <div style="color: black !important;" class="content">{{days}} <p>Days</p></div>
+      <div class="marginLeft15em">
+        <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
+          <div>This period
+            <div style="color: black !important;" class="content"><h3>B+</h3></div>
+            <div>Last scan: {{days}}: days ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="marginLeft15em">
+        <div class="col-xs-1 square-box marginLeft1em" style="border: solid;">
+          <div>Last Period
+            <div style="color: black !important;" class="content"><h3>A+</h3></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </div>
+
+
