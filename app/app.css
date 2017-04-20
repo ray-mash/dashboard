@@ -65,6 +65,10 @@ h2 span { background:#fff;
   margin-left: 1em;
   padding-top: 50px;
 }
+.tableAlign{
+  margin-left: 28em;
+  margin-top: 1em;
+}
 .marginLeft10em{
   margin-left: 10em;
 }
@@ -139,8 +143,8 @@ svg text {
   padding: 10% 5%;
 }
 
-.padTop10{
-  padding-top: 129px;
+.padTop142{
+  padding-top: 142px;
 }
 
 .testing-box {

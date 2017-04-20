@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
+angular.module('myApp.viewDashboard', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'viewDashboard/view1.html',
     controller: 'View1Ctrl as ctrl'
@@ -26,8 +26,12 @@ angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
 //       "<hr />headers: " + header +
 //       "<hr />config: " + config;
 // });
-.controller('View1Ctrl', ['$http','$scope', function($http,$scope) {
+.controller('View1Ctrl', ['$http', '$scope', function ($http, $scope) {
 
+  $scope.coverage = '50%';
+  $scope.errors = '33.2%';
+  $scope.failures = '29.0%';
+  $scope.total = '69.0%';
   $scope.switchStatus = true;
   $scope.getDatetime = new Date();
 // var data = {
@@ -35,19 +39,12 @@ angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
 //   "pull_request_id": "1"
 // };
   $scope.days = 10;
-  $http.get('/api/frequencies/deploy').then(function (response) {
-        console.log(response);
-      },
-      function(error){
-        console.log(error);
-      });
-
   $scope.dayLastDeploy = 41;
   drawCalendar('chart5');
   // drawChart('chart2');
   // console.log($scope.dayLastDeploy);
-  drawMultiBarChart('chart4',mergeData() );
-  drawMultiBarChart('chart2',deployData() );
+  drawMultiBarChart('chart4', mergeData());
+  drawMultiBarChart('chart2', deployData());
   drawPieChart('chart1');
   drawPieChart('security-chart');
   drawPieChart('reliability-chart');
@@ -84,38 +81,45 @@ angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
   //     return chart;
   //   });
   // }
-  function drawCalendar(div){
+  function drawCalendar(div) {
     nv.addGraph(function () {
       var chart = nv.models.discreteBarChart()
       // .x(function(d) { return d.label })    //Specify the data accessors.
-      .y(function(d) { return d.value })
+      .y(function (d) {
+        return d.value
+      })
       .staggerLabels(false)    //Too many bars and not enough room? Try staggering labels.
       // .tooltips(false)        //Don't show tooltips
       .showValues(false);       //...instead, show the bar value right on top of each bar.
       // .transitionDuration(350);
 
       d3.select("#" + div + " svg")
-      .datum( exampleData1())
+      .datum(exampleData1())
       // .datum( $scope.dayLastDeploy)
       .call(chart);
-      nv.utils.windowResize(function() {
+      nv.utils.windowResize(function () {
         chart.update();         //Renders the chart when window is resized.
       });
       return chart;
     });
     // $scope.dayLastDeploy = 41;
   }
+
   function drawPieChart(div) {
 //Donut chart example
     var graphColors = ["green", "dodgerblue"];
 
-    d3.scale.graphColors = function() {
+    d3.scale.graphColors = function () {
       return d3.scale.ordinal().range(graphColors);
     };
-    nv.addGraph(function() {
+    nv.addGraph(function () {
       var chart = nv.models.pieChart()
-          .x(function(d) { return d.label })
-          .y(function(d) { return d.value })
+          .x(function (d) {
+            return d.label
+          })
+          .y(function (d) {
+            return d.value
+          })
           .showLabels(true).color(d3.scale.graphColors().range())     //Display pie labels
           .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
           .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
@@ -132,49 +136,44 @@ angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
 
 //Pie chart example data. Note how there is only a single array of key-value pairs.
     function exampleData() {
-      return  [
+      return [
         {
           "label": "Passed",
-          "value" : 29.765957771107
-        } ,
+          "value": 29.765957771107
+        },
         {
           "label": "Failed",
-          "value" : 102
+          "value": 102
         }
       ];
     }
   }
+
   function drawMultiBarChart(div, data) {
-    // var width = 400; var height = 400;
-    // $http.get('/frequencies/deploy').then(function (response) {
-    // $http.post('/frequencies/deploy').then(function (response) {
-    //   console.log(response);
-    // },
-    // function(error){
-    //   console.log(error);
-    // });
-
-
     nv.addGraph(function () {
       var chart = nv.models.discreteBarChart()
-          .x(function(d) { return d.label })    //Specify the data accessors.
-          .y(function(d) { return d.value })
-          .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-          // .tooltips(false)        //Don't show tooltips
-          .showValues(true);       //...instead, show the bar value right on top of each bar.
-          // .transitionDuration(350);
+      .x(function (d) {
+        return d.label
+      })    //Specify the data accessors.
+      .y(function (d) {
+        return d.value
+      })
+      .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
+      .showValues(true);
 
       d3.select("#" + div + " svg")
       .datum(data)
+
       .call(chart);
-      nv.utils.windowResize(function() {
+      nv.utils.windowResize(function () {
         chart.update();         //Renders the chart when window is resized.
       });
       return chart;
     });
   }
+
   function drawCumulativeChart(div) {
-    nv.addGraph(function() {
+    nv.addGraph(function () {
       var chart = nv.models.lineChart()
           .margin({left: 150})  //Adjust chart margins to give the x-axis some breathing room.
           .useInteractiveGuideline(true)  //We want nice looking tooltips and a guideline!
@@ -201,68 +200,87 @@ angular.module('myApp.viewDashboard', ['ngRoute', 'toggle-switch'])
       .call(chart);          //Finally, render the chart!
 
       //Update the chart when window resizes.
-      nv.utils.windowResize(function() { chart.update() });
+      nv.utils.windowResize(function () {
+        chart.update()
+      });
       return chart;
     });
   }
+
   function deployData() {
-    return  [
+    return [
       {
         key: "Cumulative Return",
-        values:
-            [{
-              "label": "W1",
-              "value": 21
-            }, {
-              "label": "W2",
-              "value": 10
-            },{
-              "label": "W3",
-              "value": 19
-            }]
+        values: [{
+          "label": "W1",
+          "value": 21
+        }, {
+          "label": "W2",
+          "value": 10
+        }, {
+          "label": "W3",
+          "value": 19
+        }]
       }
     ];
   }
+
   function mergeData() {
-    return  [
-      {
-        key: "Cumulative Return",
-        values:
-            [{
-              "label": "W1",
-              "value": 38
-            }, {
-              "label": "W2",
-              "value": 15
-            },{
-              "label": "W3",
-              "value": 29
-            }]
-      }
-    ];
+    var mergeArray = [{
+      key: "Cumulative Return",
+      values: []
+    }];
+
+    $http.get('/api/frequencies/steve-test').then(function (response) {
+          console.log(response.data.test_deploys);
+          var pull_requestsExample = {
+            "2017-04-04": 1,
+            "2017-04-05": 4,
+            "2017-04-06": 7
+          };
+          // var myObject = response.data.pull_requests;
+          var myObject = pull_requestsExample;
+          var newArrayObject = {};
+          Object.keys(myObject).map(function (key, index) {
+            newArrayObject = {
+              'label': key,
+              'value': myObject[key]
+            };
+            mergeArray[0].values[index] = newArrayObject;
+          });
+        },
+        function (error) {
+          $scope.error = {
+            'message': error.data.statusText,
+            'code': error.data.status
+          };
+        });
+
+    return mergeArray;
   }
+
   function exampleData1() {
-    return  [
+    return [
       {
         key: "Cumulative Return",
-        values:
-            [{
-              "label": "2017-04-04",
-              "value": 21
-            }]
+        values: [{
+          "label": "2017-04-04",
+          "value": 21
+        }]
       }
     ];
   }
+
   function exampleData2() {
 
     return [
       {
-        values: [{'x':412,'y':42}],      //values - represents the array of {x,y} data points
+        values: [{'x': 412, 'y': 42}],      //values - represents the array of {x,y} data points
         key: 'Uptime Waves', //key  - the name of the series.
         color: '#ff7f0e'  //color - optional: choose your own line color.
       },
       {
-        values: [{'x':42,'y':12}]
+        values: [{'x': 42, 'y': 12}]
       }
     ];
   }

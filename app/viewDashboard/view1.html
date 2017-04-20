@@ -1,6 +1,9 @@
 <div ng-app="myApp" ng-controller="View1Ctrl">
- <div   class="container" style="background: #030329">
-   <h1 class="col-md-8"> MYUPDATES <span class="btn-group marginLeft7em"><button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span></h1></div>
+  <div class="container" style="background: #030329">
+    <h1 class="col-md-8"> MYUPDATES <span class="btn-group marginLeft7em">
+      <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
+    </h1>
+  </div>
   <h1 class="col-md-9">FREQUENCY</h1>
   <section style="border: solid;" class="row col-md-6 freq-align">
     <div class="row">
@@ -8,11 +11,6 @@
         <p>Merge to Trunk</p>
         <svg title="trunk" style="height:180px; width: 230px;"></svg>
       </div>
-      <!--<div id="chart2" class="col-xs-1">-->
-        <!--<p>Deploys to TEST</p>-->
-        <!--<svg style="height:150px; width: 200px;"></svg>-->
-        <!--<p class="week">Moving total over the last 3 weeks</p>-->
-      <!--</div>-->
       <div id="chart2" class="col-xs-1 marginLeft35">
         <p>Deploys to TEST</p>
         <svg style="height:180px; width: 230px;"></svg>
@@ -25,19 +23,32 @@
       </div>
     </div>
   </section>
+
   <div><h1>TESTING</h1>
     <section class="col-md-13">
       <div class="row testing-box" style="border: solid;">
         <div id="chart1a" class="col-xs-2">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                  <em class="col-xs-2">Most Places</em>
-              </div>
-            </div>
-          </nav>
-
           <svg style="height:150px; width: 200px;"></svg>
+        </div>
+        <div class="col-xs-1">
+          <table class="table table-responsive tableAlign">
+            <thead>
+            <tr>
+              <th>Coverage</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{coverage}}</td>
+              <td>{{errors}}</td>
+              <td>{{failures}}</td>
+              <td>{{total}}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div id="chart5" class="col-xs-1 marginLeft35">
           <svg style="height:250px; width: 300px;"></svg>
@@ -49,7 +60,7 @@
 
 <div class="row marginTop">
   <section class="col-xs-3 security-box">
-    <h1 class="marginLeft35">Security</h1>
+    <h1 class="marginLeft35">SECURITY</h1>
     <div class="row marginLeft35" style="border: solid;">
       <div id="security-chart" class="col-xs-2">
         <p>CIS & SSL are industry standard security tests and certificates</p>
@@ -74,7 +85,7 @@
   </section>
   <section class="col-xs-3 security-box">
     <h1><span>RELIABILITY</span></h1>
-    <div class="row padTop10" style="border: solid;">
+    <div class="row padTop142" style="border: solid;">
       <p class="marginLeft1em">Failed Deploys</p>
       <div id="reliability-chart" class="col-xs-1">
 
@@ -96,18 +107,18 @@
 
       </div>
 
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" data-toggle="toggle">
-          Option one is enabled
-        </label>
-      </div>
-      <div class="checkbox disabled">
-        <label>
-          <input type="checkbox" disabled data-toggle="toggle">
-          Option two is disabled
-        </label>
-      </div>
+      <!--<div class="checkbox">-->
+      <!--<label>-->
+      <!--<input type="checkbox" data-toggle="toggle">-->
+      <!--Option one is enabled-->
+      <!--</label>-->
+      <!--</div>-->
+      <!--<div class="checkbox disabled">-->
+      <!--<label>-->
+      <!--<input type="checkbox" disabled data-toggle="toggle">-->
+      <!--Option two is disabled-->
+      <!--</label>-->
+      <!--</div>-->
 
       <div class="marginLeft15em">
         <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
