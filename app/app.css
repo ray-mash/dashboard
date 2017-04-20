@@ -7,6 +7,20 @@
   padding: 0 0 0.5em;
 }
 
+.padToZero{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+h2 { width:100%;
+  text-align:center;
+  border-bottom: 1px solid #000;
+  line-height:0.1em;
+  margin:10px 0 20px;
+}
+h2 span { background:#fff;
+  padding:0 10px;
+}
+
 .menu:before {
   content: "[";
 }
@@ -59,6 +73,17 @@
 }
 .marginLeft35{
   margin-left: 25px;
+}
+body {
+  color: white;
+}
+
+svg text {
+  fill: white;
+}
+
+.marginLeft7em{
+  margin-left: 7em;
 }
 .marginLeft15{
   margin-left: 15px;

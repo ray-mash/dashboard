@@ -1,12 +1,12 @@
 <div ng-app="myApp" ng-controller="View1Ctrl">
- <div class="jumbotron container">
-   <h1> MYUPDATES <span class="btn-group"><button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span></h1></div>
+ <div   class="container" style="background: #030329">
+   <h1 class="col-md-8"> MYUPDATES <span class="btn-group marginLeft7em"><button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span></h1></div>
   <h1 class="col-md-9">FREQUENCY</h1>
   <section style="border: solid;" class="row col-md-6 freq-align">
     <div class="row">
       <div id="chart4" class="col-md-2">
         <p>Merge to Trunk</p>
-        <svg title="trunk" style="height:150px; width: 200px;"></svg>
+        <svg title="trunk" style="height:180px; width: 230px;"></svg>
       </div>
       <!--<div id="chart2" class="col-xs-1">-->
         <!--<p>Deploys to TEST</p>-->
@@ -15,12 +15,12 @@
       <!--</div>-->
       <div id="chart2" class="col-xs-1 marginLeft35">
         <p>Deploys to TEST</p>
-        <svg style="height:180px; width: 300px;"></svg>
-        <p class="week">Moving total over the last 3 weeks</p
+        <svg style="height:180px; width: 230px;"></svg>
+        <p class="week">Moving total over the last 3 weeks</p>
       </div>
       <div id="date" class="col-xs-1 square-box square-position" style="border: solid;">
-        <div>Days since last successful deploy to Prod
-          <div style="color: black !important;" class="content">{{days}} <p>Days</p></div>
+        <div><strong>Days since last successful deploy to Prod</strong>
+          <div class="content"><strong>{{days}} <p>Days</p></strong></div>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
       <div class="marginLeft15em">
         <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
           <div>This period
-            <div style="color: black !important;" class="content"><h3>B+</h3></div>
+            <div class="content"><h3>B+</h3></div>
             <div>Last scan: {{days}}: days ago</div>
           </div>
         </div>
@@ -66,14 +66,14 @@
       <div class="marginLeft15em">
         <div class="col-xs-1 square-box marginLeft1em" style="border: solid;">
           <div>Last Period
-            <div style="color: black !important;" class="content"><h3>A+</h3></div>
+            <div class="content"><h3>A+</h3></div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <section class="col-xs-3 security-box">
-    <h1 class="marginLeft35">RELIABILITY</h1>
+    <h1><span>RELIABILITY</span></h1>
     <div class="row padTop10" style="border: solid;">
       <p class="marginLeft1em">Failed Deploys</p>
       <div id="reliability-chart" class="col-xs-1">
@@ -95,10 +95,24 @@
         <p>Cyclomatic Complexity</p>
 
       </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" data-toggle="toggle">
+          Option one is enabled
+        </label>
+      </div>
+      <div class="checkbox disabled">
+        <label>
+          <input type="checkbox" disabled data-toggle="toggle">
+          Option two is disabled
+        </label>
+      </div>
+
       <div class="marginLeft15em">
         <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
           <div>This period
-            <div style="color: black !important;" class="content"><h3>B+</h3></div>
+            <div class="content"><h3>B+</h3></div>
             <div>Last scan: {{days}}: days ago</div>
           </div>
         </div>
@@ -106,7 +120,7 @@
       <div class="marginLeft15em">
         <div class="col-xs-1 square-box marginLeft1em" style="border: solid;">
           <div>Last Period
-            <div style="color: black !important;" class="content"><h3>A+</h3></div>
+            <div class="content"><h3>A+</h3></div>
           </div>
         </div>
       </div>
