@@ -27,7 +27,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
 //       "<hr />config: " + config;
 // });
 .controller('View1Ctrl', ['$http', '$scope', function ($http, $scope) {
-
+  var graphColors = ["green", "dodgerblue"];
   $scope.coverage = '50%';
   $scope.errors = '33.2%';
   $scope.failures = '29.0%';
@@ -44,7 +44,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
   // drawChart('chart2');
   // console.log($scope.dayLastDeploy);
   drawMultiBarChart('chart4', mergeData());
-  drawMultiBarChart('chart2', deployData());
+  drawMultiBar('chart2', deployData());
   drawPieChart('chart1');
   drawPieChart('security-chart');
   drawPieChart('reliability-chart');
@@ -107,7 +107,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
 
   function drawPieChart(div) {
 //Donut chart example
-    var graphColors = ["green", "dodgerblue"];
+//     var graphColors = ["green", "dodgerblue"];
 
     d3.scale.graphColors = function () {
       return d3.scale.ordinal().range(graphColors);
@@ -150,6 +150,9 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
   }
 
   function drawMultiBarChart(div, data) {
+    d3.scale.graphColors = function () {
+      return d3.scale.ordinal().range(graphColors);
+    };
     nv.addGraph(function () {
       var chart = nv.models.discreteBarChart()
       .x(function (d) {
@@ -159,7 +162,41 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
         return d.value
       })
       .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-      .showValues(true);
+      .showValues(true).color(d3.scale.graphColors().range());
+      // .showValues(true).color(d3.scale.graphColors().range());
+
+      d3.select("#" + div + " svg")
+      .datum(data)
+
+      .call(chart);
+      nv.utils.windowResize(function () {
+        chart.update();         //Renders the chart when window is resized.
+      });
+      return chart;
+    });
+  }
+  function drawMultiBar(div, data) {
+    d3.scale.graphColors = function () {
+      return d3.scale.ordinal().range(graphColors);
+    };
+    nv.addGraph(function () {
+      var chart = nv.models.discreteBarChart()
+      .x(function (d) {
+        // console.log('xxx: '+JSON.stringify(d,null,2));
+        return d.label
+      })    //Specify the data accessors.
+      .y(function (d) {
+        // console.log('yyy: '+JSON.stringify(d,null,2));
+        if(d.value.success){
+          d.value = d.value.success
+        }else if (d.value.fail) {
+          d.value = d.value.fail
+        }
+        return d.value
+      })
+      .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
+      .showValues(true).color(d3.scale.graphColors().range());
+      // .showValues(true).color(d3.scale.graphColors().range());
 
       d3.select("#" + div + " svg")
       .datum(data)
@@ -208,21 +245,52 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
   }
 
   function deployData() {
-    return [
-      {
-        key: "Cumulative Return",
-        values: [{
-          "label": "W1",
-          "value": 21
-        }, {
-          "label": "W2",
-          "value": 10
-        }, {
-          "label": "W3",
-          "value": 19
-        }]
-      }
-    ];
+
+    var testDeployArray = [{
+      key: "Cumulative Return",
+      values: []
+    }];
+
+    $http.get('/api/frequencies/steve-test').then(function (response) {
+          // console.log('rayzor :'+JSON.stringify(response.data.test_deploys,null,2));
+          // var test_deploysExample = {
+          //   "2017-04-04": {'success': 3},
+          //   "2017-04-05": {'success': 5},
+          //   "2017-04-06": {'fail': 1}
+          // };
+          var myObject = response.data.test_deploys;
+          // var myObject = test_deploysExample;
+          var deployArray = {};
+          Object.keys(myObject).map(function (key, index) {
+            // console.log(key);
+            // console.log(myObject[key]);
+            // console.log(myObject[key]);
+            deployArray = {
+              'label': key,
+              'value': myObject[key],
+              'color':getCorrectColor(myObject[key])
+            };
+
+            function getCorrectColor  (key) {
+              if(key.success){
+                return '#00ff00';
+              }else{
+                return '#4d94ff';
+              }
+            }
+            testDeployArray[0].values[index] = deployArray;
+            // console.log('Ray : ' + JSON.stringify(testDeployArray,null,2));
+
+          });
+        },
+        function (error) {
+          $scope.error = {
+            'message': error.data.statusText,
+            'code': error.data.status
+          };
+        });
+
+    return testDeployArray;
   }
 
   function mergeData() {
@@ -232,7 +300,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
     }];
 
     $http.get('/api/frequencies/steve-test').then(function (response) {
-          console.log(response.data.test_deploys);
+          // console.log(response.data.test_deploys);
           var pull_requestsExample = {
             "2017-04-04": 1,
             "2017-04-05": 4,
@@ -242,9 +310,11 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
           var myObject = pull_requestsExample;
           var newArrayObject = {};
           Object.keys(myObject).map(function (key, index) {
+            // console.log('@@@@@@@@@@@@key ' + key + ' : ' + myObject[key]);
             newArrayObject = {
               'label': key,
               'value': myObject[key]
+              // "color" : "#8c564b"
             };
             mergeArray[0].values[index] = newArrayObject;
           });
