@@ -1,15 +1,12 @@
 'use strict';
 
 angular.module('myApp.viewDashboard', ['ngRoute'])
-
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'viewDashboard/view1.html',
     controller: 'View1Ctrl as ctrl'
   });
 }])
-
-
 // var config = {
 //   headers : {
 //     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -27,7 +24,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
 //       "<hr />config: " + config;
 // });
 .controller('View1Ctrl', ['$http', '$scope', function ($http, $scope) {
-  var graphColors = ["green", "dodgerblue"];
+  var graphColors = ["#2ca02c", "dodgerblue"];
   $scope.coverage = '50%';
   $scope.errors = '33.2%';
   $scope.failures = '29.0%';
@@ -104,7 +101,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
     });
     // $scope.dayLastDeploy = 41;
   }
-
   function drawPieChart(div) {
 //Donut chart example
 //     var graphColors = ["green", "dodgerblue"];
@@ -148,7 +144,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
       ];
     }
   }
-
   function drawMultiBarChart(div, data) {
     d3.scale.graphColors = function () {
       return d3.scale.ordinal().range(graphColors);
@@ -208,7 +203,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
       return chart;
     });
   }
-
   function drawCumulativeChart(div) {
     nv.addGraph(function () {
       var chart = nv.models.lineChart()
@@ -243,7 +237,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
       return chart;
     });
   }
-
   function deployData() {
 
     var testDeployArray = [{
@@ -292,7 +285,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
 
     return testDeployArray;
   }
-
   function mergeData() {
     var mergeArray = [{
       key: "Cumulative Return",
@@ -328,7 +320,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
 
     return mergeArray;
   }
-
   function exampleData1() {
     return [
       {
@@ -340,7 +331,6 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
       }
     ];
   }
-
   function exampleData2() {
 
     return [

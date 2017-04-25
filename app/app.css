@@ -61,23 +61,45 @@ h2 span { background:#fff;
   margin-left: -110px;
 }
 
-.freq-align{
-  width: 74em;
-  margin-left: 1em;
-  padding-top: 50px;
+.passFail-align{
+  margin-left: 25em;
+  margin-top: -17em;
 }
+
 .tableAlign{
   margin-left: 28em;
   margin-top: 1em;
 }
+.word-align {
+  margin-left: 25em;
+  margin-top: 5em;
+}
 .marginLeft10em{
   margin-left: 10em;
+}
+.marginLeft5em{
+  margin-left: 5em;
+}
+
+.lintDeco{
+  margin-left: 5em;
+  font-size: 30px;
+}
+.marginLeft10minus{
+  margin-left: -10em;
 }
 .marginLeft1em{
   margin-left: 1em;
 }
-.marginLeft35{
-  margin-left: 25px;
+.marginLeft35px{
+  margin-left: 35px;
+}
+.width47em {
+  width: 45em;
+}
+
+.width60em {
+  width: 60em;
 }
 body {
   color: white;
@@ -86,12 +108,42 @@ body {
 svg text {
   fill: white;
 }
-
+.paddingTop13{
+  padding-top: 13em;
+}
+.paddingTop20{
+  padding-top: 20em;
+}
+.paddingTop15{
+  padding-top: 15em;
+}
+.paddingTop16{
+  padding-top: 15em;
+}
+.reliable-word{
+  padding-top: 14em;
+  margin-left: 2em;
+}
+.paddingTopSec123px{
+  padding-top: 123px;
+}
+.paddingTop14{
+  padding-top: 14em;
+}
+.paddingBottom10{
+  padding-bottom: 10em;
+}
 .marginLeft7em{
   margin-left: 7em;
 }
+.marginLeft8emcis{
+  margin-left: -8em;
+}
 .marginLeft15{
   margin-left: 15px;
+}
+.marginLeft12em{
+  margin-left: 12em;
 }
 .marginLeft15em{
   margin-left: 15em;
@@ -101,6 +153,9 @@ svg text {
 }
 .marginLeft2em{
   margin-left: 2em;
+}
+.marginLeft20em{
+  margin-left: 20em;
 }
 .marginLeft4em{
   margin-left: 4em;
@@ -121,20 +176,41 @@ svg text {
   margin-bottom: 15px;
 }
 
-.square-box {
+.square-box-big {
   float:left;
   position: relative;
   width: 14em;
   padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
   margin-right: 1.66%;
-  margin-left: 8em;
-  margin-top: 1.66%;
+  margin-left: 1em;
+  margin-top: 30px;
   margin-bottom: 1.66%;
   overflow:hidden;
   padding-bottom: 8em; /* = width for a square aspect ratio */
 }
+
+.square-box-small {
+  float:left;
+  position: relative;
+  width: 8em;
+  /*padding-bottom: 15%; !* = width for a 1:1 aspect ratio *!*/
+  margin-right: 1.01%;
+  margin-left: 1em;
+  margin-top: 6em;
+  margin-bottom: 1.01%;
+  overflow:hidden;
+  padding-bottom: 4em; /* = width for a square aspect ratio */
+}
+
+
+.btn-squared-default
+{
+  width: 150px !important;
+  height: 170px !important;
+  font-size: 15px;
+}
 .square-position{
-  margin-left: 40em;
+  margin-left: 70em;
   margin-top: -17em;
 }
 .content {
@@ -147,17 +223,44 @@ svg text {
 .padTop142{
   padding-top: 142px;
 }
-
-.testing-box {
-  width: 60em;
-  margin-left: 76em;
+.freq-align{
+  width: 94em;
+  margin-left: 1em;
+  padding-top: 10em;
+}
+.testing-align {
+  width: 85em;
+  margin-left: 50em;
   border: solid;
+  padding-top: 284px;
 }
 .marginTop{
   margin-top: 1px;
 }
 
 .security-box{
+  width: 60em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.quality-box{
+  width: 60em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+.freq-box{
+  width: 45em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+.security-box-align{
+  width: 60em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.testing-box{
   width: 45em;
   margin-right: 1em;
   margin-top: 2em;

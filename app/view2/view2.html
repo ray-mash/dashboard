@@ -1,1 +1,60 @@
 
+div ng-app="myApp" ng-controller="View1Ctrl">
+<div class="container" style="background: #030329">
+  <h1 class="col-md-8"> MYUPDATES <span class="btn-group marginLeft7em">
+      <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
+  </h1>
+</div>
+<h1 class="col-md-9">FREQUENCY</h1>
+<section style="border: solid;" class="row col-md-6 freq-align">
+  <div class="row">
+    <div id="chart4" class="col-md-2">
+      <p>Merge to Trunk</p>
+      <svg title="trunk" style="height:180px; width: 230px;"></svg>
+    </div>
+    <div id="chart2" class="col-xs-1 marginLeft35">
+      <p>Deploys to TEST</p>
+      <svg style="height:180px; width: 230px;"></svg>
+      <p class="week">Moving total over the last 3 weeks</p>
+    </div>
+    <div id="date" class="col-xs-1 square-box square-position" style="border: solid;">
+      <div><strong>Days since last successful deploy to Prod</strong>
+        <div class="content"><strong>{{days}} <p>Days</p></strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div><h1>TESTING</h1>
+  <section class="col-md-13">
+    <div class="row testing-box" style="border: solid;">
+      <div id="chart1a" class="col-xs-2">
+        <svg style="height:150px; width: 200px;"></svg>
+      </div>
+      <div class="col-xs-1">
+        <table class="table table-responsive tableAlign">
+          <thead>
+          <tr>
+            <th>Coverage</th>
+            <th>Errors</th>
+            <th>Failures</th>
+            <th>Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>{{coverage}}</td>
+            <td>{{errors}}</td>
+            <td>{{failures}}</td>
+            <td>{{total}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="chart5" class="col-xs-1 marginLeft35">
+        <svg style="height:250px; width: 300px;"></svg>
+      </div>
+    </div>
+  </section>
+</div>
+</div>

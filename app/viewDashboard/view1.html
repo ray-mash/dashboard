@@ -4,32 +4,45 @@
       <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
     </h1>
   </div>
-  <h1 class="col-md-9">FREQUENCY</h1>
-  <section style="border: solid;" class="row col-md-6 freq-align">
-    <div class="row">
-      <div id="chart4" class="col-md-2">
-        <p>Merge to Trunk</p>
-        <svg title="trunk" style="height:180px; width: 230px;"></svg>
-      </div>
-      <div id="chart2" class="col-xs-1 marginLeft35">
-        <p>Deploys to TEST</p>
-        <svg style="height:180px; width: 230px;"></svg>
-        <p class="week">Moving total over the last 3 weeks</p>
-      </div>
-      <div id="date" class="col-xs-1 square-box square-position" style="border: solid;">
-        <div><strong>Days since last successful deploy to Prod</strong>
-          <div class="content"><strong>{{days}} <p>Days</p></strong></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <div><h1>TESTING</h1>
-    <section class="col-md-13">
-      <div class="row testing-box" style="border: solid;">
-        <div id="chart1a" class="col-xs-2">
-          <svg style="height:150px; width: 200px;"></svg>
+
+  <div class="row marginTop">
+    <section class="col-sm-8 freq-box">
+      <h1 class="marginLeft1em">FREQUENCY</h1>
+      <div class="row marginLeft35px freq-align" style="border: solid;">
+        <div id="frequency-chart" class="col-md-7">
+          <div class="row">
+            <div id="chart4" class="col-md-4">
+              <p class="marginLeft5em">Merge to Trunk</p>
+              <svg style="height:190px; width: 300px;"></svg>
+            </div>
+            <div id="chart2" class="col-md-5 marginLeft8em">
+              <p class="marginLeft5em">Deploys to TEST</p>
+              <svg style="height:190px; width: 350px;"></svg>
+              <p class="week">Number per week, moving total over the last 3 weeks</p>
+              <div class="row col-md-1">
+                <ul class="passFail-align">
+                  <li style="color: #2ca02c">Passed</li>
+                  <li style="color: #1e90ff">Failed</li>
+                </ul>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-lg-12 square-position">
+                <div class="btn btn-squared-default btn-default">
+                  Days since last <br> successful deploy<br/> to Prod
+                  <h1>{{days}}</h1>Days
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+    <section class="col-md-7 testing-box">
+      <h1 class="marginLeft20em">TESTING</h1>
+      <div class="row testing-align" style="border: solid;">
         <div class="col-xs-1">
           <table class="table table-responsive tableAlign">
             <thead>
@@ -50,93 +63,79 @@
             </tbody>
           </table>
         </div>
-        <div id="chart5" class="col-xs-1 marginLeft35">
-          <svg style="height:250px; width: 300px;"></svg>
+
+      </div>
+    </section>
+  </div>
+  <div class="row marginTop">
+    <section class="col-md-4 security-box-align">
+      <h1 class="marginLeft1em">SECURITY</h1>
+      <div class="row marginLeft1em paddingTopSec123px" style="border: solid;">
+        <h2 class="marginLeft8emcis">CIS</h2>
+        <div id="security-chart" class="col-xs-2">
+          <svg style="height:180px; width: 280px;"></svg>
         </div>
+        <p class="word-align">CIS & SSL are industry standard security tests and certificates</p>
+        <h3 class="marginLeft15em">SSL Security</h3>
+
+        <div class="marginLeft15em">
+          <div class="col-xs-3 square-box-small marginLeft1em" style="border: solid;">
+            <div>Last period
+              <div class="content"><h3>B+</h3></div>
+              <!--<div>Last scan: {{days}}: days ago</div>-->
+            </div>
+          </div>
+        </div>
+        <div class="marginLeft15em">
+          <div class="col-xs-1 square-box-big marginLeft1em" style="border: solid;">
+            <div>This Period
+              <div class="content"><h3>A+</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="col-md-4 security-box">
+      <h1><span>RELIABILITY</span></h1>
+      <div class="row paddingTop15" style="border: solid;">
+        <p class="marginLeft1em">Failed Deploys</p>
+        <div id="reliability-chart" class="col-xs-4">
+          <svg style="height:180px; width: 280px;"></svg>
+        </div>
+
+        <div class="marginLeft15em">
+          <div id="reliability-line-chart" class="col-xs-2">
+            <svg style="height:180px; width: 280px;"></svg>
+          </div>
+        </div>
+        <div class="reliable-word">Over the last 30 Days, Anything over 80% is great</div>
+      </div>
+
+    </section>
+    <section class="col-md-4 quality-box">
+      <h1 class="marginLeft35">CODE QUALITY</h1>
+      <div class="row  paddingTop16 width60em" style="border: solid;">
+        <div>
+          <div class="lintDeco">Lint</div>
+          <div class="col-xs-3 square-box-small" style="border: solid;">
+            <div>Last period
+              <div class="content"><h3>B+</h3></div>
+              <!--<div>Last scan: {{days}}: days ago</div>-->
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="col-xs-1 square-box-big" style="border: solid;">
+            <div>This Period
+              <div class="content"><h3>A+</h3></div>
+            </div>
+          </div>
+        </div>
+        <div id="code-quality" class="col-xs-2 marginLeft15em">
+        </div>
+        <p>Cyclomatic Complexity</p>
       </div>
     </section>
   </div>
 </div>
-
-<div class="row marginTop">
-  <section class="col-xs-3 security-box">
-    <h1 class="marginLeft35">SECURITY</h1>
-    <div class="row marginLeft35" style="border: solid;">
-      <div id="security-chart" class="col-xs-2">
-        <p>CIS & SSL are industry standard security tests and certificates</p>
-        <svg style="height:150px; width: 200px;"></svg>
-      </div>
-      <div class="marginLeft15em">
-        <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
-          <div>This period
-            <div class="content"><h3>B+</h3></div>
-            <div>Last scan: {{days}}: days ago</div>
-          </div>
-        </div>
-      </div>
-      <div class="marginLeft15em">
-        <div class="col-xs-1 square-box marginLeft1em" style="border: solid;">
-          <div>Last Period
-            <div class="content"><h3>A+</h3></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="col-xs-3 security-box">
-    <h1><span>RELIABILITY</span></h1>
-    <div class="row padTop142" style="border: solid;">
-      <p class="marginLeft1em">Failed Deploys</p>
-      <div id="reliability-chart" class="col-xs-1">
-
-        <svg style="height:150px; width: 200px;"></svg>
-      </div>
-      <div class="marginLeft15em">
-        <div id="reliability-line-chart" class="col-xs-1">
-
-          <svg style="height:150px; width: 200px;"></svg>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="col-xs-3 security-box">
-    <h1 class="marginLeft35">CODE QUALITY</h1>
-    <div class="row marginLeft35" style="border: solid;">
-      <div id="code-quality" class="col-xs-2">
-        <p>Cyclomatic Complexity</p>
-
-      </div>
-
-      <!--<div class="checkbox">-->
-      <!--<label>-->
-      <!--<input type="checkbox" data-toggle="toggle">-->
-      <!--Option one is enabled-->
-      <!--</label>-->
-      <!--</div>-->
-      <!--<div class="checkbox disabled">-->
-      <!--<label>-->
-      <!--<input type="checkbox" disabled data-toggle="toggle">-->
-      <!--Option two is disabled-->
-      <!--</label>-->
-      <!--</div>-->
-
-      <div class="marginLeft15em">
-        <div class="col-xs-3 square-box marginLeft1em" style="border: solid;">
-          <div>This period
-            <div class="content"><h3>B+</h3></div>
-            <div>Last scan: {{days}}: days ago</div>
-          </div>
-        </div>
-      </div>
-      <div class="marginLeft15em">
-        <div class="col-xs-1 square-box marginLeft1em" style="border: solid;">
-          <div>Last Period
-            <div class="content"><h3>A+</h3></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
 
