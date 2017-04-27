@@ -1,11 +1,9 @@
 <div ng-app="myApp" ng-controller="View1Ctrl">
   <div class="container" style="background: #030329">
-    <h1 class="col-md-8"> MYUPDATES <span class="btn-group marginLeft7em">
+    <h1 class="col-md-10"> MYUPDATES Deployment Pipe Line<span class="btn-group marginLeft7em">
       <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
     </h1>
   </div>
-
-
   <div class="row marginTop">
     <section class="col-sm-8 freq-box">
       <h1 class="marginLeft1em">FREQUENCY</h1>
@@ -22,11 +20,10 @@
               <p class="week">Number per week, moving total over the last 3 weeks</p>
               <div class="row col-md-1">
                 <ul class="passFail-align">
-                  <li style="color: #2ca02c">Passed</li>
-                  <li style="color: #1e90ff">Failed</li>
+                  <li style="color: #2ca02c">Success</li>
+                  <li style="color: #1e90ff">Fail</li>
                 </ul>
               </div>
-
             </div>
             <div class="row">
               <div class="col-lg-12 square-position">
@@ -43,8 +40,8 @@
     <section class="col-md-7 testing-box">
       <h1 class="marginLeft20em">TESTING</h1>
       <div class="row testing-align" style="border: solid;">
-        <div class="col-xs-1">
-          <table class="table table-responsive tableAlign">
+        <div class="col-xs-3">
+          <table class="table table-responsive tableAlign" data-ng-model="testingMatrix">
             <thead>
             <tr>
               <th>Coverage</th>
@@ -55,18 +52,36 @@
             </thead>
             <tbody>
             <tr>
-              <td>{{coverage}}</td>
-              <td>{{errors}}</td>
-              <td>{{failures}}</td>
-              <td>{{total}}</td>
+              <td>{{testingMatrix.testCoverage}}</td>
+              <td>{{testingMatrix.functionalErrors}}</td>
+              <td>{{testingMatrix.functionalFailures}}</td>
+              <td>{{testingMatrix.functionalTotal}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <!--<div class="col-xs-3">-->
+          <table class="table table-responsive tableAlign" data-ng-model="testingMatrix">
+            <thead>
+            <tr>
+              <th>Unit testing errors</th>
+              <th>Unit testing failures</th>
+              <th>Unit testing total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{testingMatrix.unitErrors}}</td>
+              <td>{{testingMatrix.unitFailures}}</td>
+              <td>{{testingMatrix.unitTotal}}</td>
             </tr>
             </tbody>
           </table>
         </div>
-
       </div>
+      <!--</div>-->
     </section>
   </div>
+
   <div class="row marginTop">
     <section class="col-md-4 security-box-align">
       <h1 class="marginLeft1em">SECURITY</h1>
@@ -97,45 +112,48 @@
     </section>
     <section class="col-md-4 security-box">
       <h1><span>RELIABILITY</span></h1>
-      <div class="row paddingTop15" style="border: solid;">
+      <div class="row padTop186px" style="border: solid;">
         <p class="marginLeft1em">Failed Deploys</p>
         <div id="reliability-chart" class="col-xs-4">
           <svg style="height:180px; width: 280px;"></svg>
         </div>
-
-        <div class="marginLeft15em">
-          <div id="reliability-line-chart" class="col-xs-2">
-            <svg style="height:180px; width: 280px;"></svg>
+        <div class="containerChart">
+          <div>
+            <canvas id="myChart"></canvas>
+            <div>Percentage of successful requests to '500-errors'</div>
           </div>
         </div>
         <div class="reliable-word">Over the last 30 Days, Anything over 80% is great</div>
       </div>
-
     </section>
     <section class="col-md-4 quality-box">
       <h1 class="marginLeft35">CODE QUALITY</h1>
-      <div class="row  paddingTop16 width60em" style="border: solid;">
+      <div class="row  padTop113px width60em" style="border: solid;">
         <div>
           <div class="lintDeco">Lint</div>
           <div class="col-xs-3 square-box-small" style="border: solid;">
             <div>Last period
-              <div class="content"><h3>B+</h3></div>
-              <!--<div>Last scan: {{days}}: days ago</div>-->
+              <div class="content"><h3>{{lintPrevious}}</h3></div>
             </div>
           </div>
         </div>
         <div>
           <div class="col-xs-1 square-box-big" style="border: solid;">
             <div>This Period
-              <div class="content"><h3>A+</h3></div>
+              <div class="content"><h3>{{lintCurrent}}</h3></div>
             </div>
           </div>
+          <div><h2>Cyclomatic Complexity</h2></div>
+          <div class="marginLeft32em">
+            <p>Worst Method : {{maxComplexity}} </p>
+            <p>Average lint : {{averageComplexity}} </p>
+          </div>
+          <div class="quality-wlint">Lint refers to the structural quality of the code</div>
         </div>
-        <div id="code-quality" class="col-xs-2 marginLeft15em">
-        </div>
-        <p>Cyclomatic Complexity</p>
       </div>
     </section>
   </div>
 </div>
+
+
 

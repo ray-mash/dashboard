@@ -6,19 +6,28 @@
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }
-
-.padToZero{
+.padTop113px{
+  padding-top: 113px;
+ }
+.padTop186px{
+  padding-top: 186px;
+ }
+.padToZero {
   padding-top: 0px;
   padding-bottom: 0px;
 }
-h2 { width:100%;
-  text-align:center;
+
+h2 {
+  width: 100%;
+  text-align: center;
   border-bottom: 1px solid #000;
-  line-height:0.1em;
-  margin:10px 0 20px;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
 }
-h2 span { background:#fff;
-  padding:0 10px;
+
+h2 span {
+  background: #fff;
+  padding: 0 10px;
 }
 
 .menu:before {
@@ -38,62 +47,74 @@ h2 span { background:#fff;
   padding-right: 0.3em;
 }
 
-.my-border
-{
-  border: medium double rgb(250,0,255)
+.my-border {
+  border: medium double rgb(250, 0, 255)
 }
+
 .div2 {
   width: 300px;
   height: 100px;
   padding: 50px;
   border: 10px solid red;
 }
+
 #chart1, #chart2, #chart3 {
-  width : 270px;
+  width: 270px;
   float: left;
 }
 
-.frequency-box{
+.frequency-box {
   width: 55em;
   margin-right: 17em;
 }
-.week{
+
+.week {
   margin-left: -110px;
 }
 
-.passFail-align{
+.passFail-align {
   margin-left: 25em;
   margin-top: -17em;
 }
 
-.tableAlign{
+.tableAlign {
   margin-left: 28em;
   margin-top: 1em;
 }
+
 .word-align {
   margin-left: 25em;
   margin-top: 5em;
 }
-.marginLeft10em{
+
+.marginLeft10em {
   margin-left: 10em;
 }
-.marginLeft5em{
+
+.marginLeft5em {
   margin-left: 5em;
 }
 
-.lintDeco{
+.lintDeco {
   margin-left: 5em;
   font-size: 30px;
 }
-.marginLeft10minus{
+
+.marginLeft10minus {
   margin-left: -10em;
 }
-.marginLeft1em{
+
+.marginLeft1em {
   margin-left: 1em;
 }
-.marginLeft35px{
+
+.marginLeft35px {
   margin-left: 35px;
 }
+.marginLeft32em {
+  margin-left: 32em;
+}
+
 .width47em {
   width: 45em;
 }
@@ -101,6 +122,7 @@ h2 span { background:#fff;
 .width60em {
   width: 60em;
 }
+
 body {
   color: white;
 }
@@ -108,76 +130,98 @@ body {
 svg text {
   fill: white;
 }
-.paddingTop13{
+
+.paddingTop13 {
   padding-top: 13em;
 }
-.paddingTop20{
+
+.paddingTop20 {
   padding-top: 20em;
 }
-.paddingTop15{
+
+.paddingTop15 {
   padding-top: 15em;
 }
-.paddingTop16{
+
+.paddingTop16 {
   padding-top: 15em;
 }
-.reliable-word{
+
+.reliable-word {
   padding-top: 14em;
   margin-left: 2em;
 }
-.paddingTopSec123px{
+
+.paddingTopSec123px {
   padding-top: 123px;
 }
-.paddingTop14{
+
+.paddingTop14 {
   padding-top: 14em;
 }
-.paddingBottom10{
+
+.paddingBottom10 {
   padding-bottom: 10em;
 }
-.marginLeft7em{
+
+.marginLeft7em {
   margin-left: 7em;
 }
-.marginLeft8emcis{
+
+.marginLeft8emcis {
   margin-left: -8em;
 }
-.marginLeft15{
+
+.marginLeft15 {
   margin-left: 15px;
 }
-.marginLeft12em{
+
+.marginLeft12em {
   margin-left: 12em;
 }
-.marginLeft15em{
+
+.marginLeft15em {
   margin-left: 15em;
 }
-.marginLeft8em{
+
+.marginLeft8em {
   margin-left: 8em;
 }
-.marginLeft2em{
+
+.marginLeft2em {
   margin-left: 2em;
 }
-.marginLeft20em{
+
+.marginLeft20em {
   margin-left: 20em;
 }
-.marginLeft4em{
+
+.marginLeft4em {
   margin-left: 4em;
 }
-.marginRight8em{
+
+.marginRight8em {
   margin-right: 8em;
 }
-.marginRight1em{
+
+.marginRight1em {
   margin-right: 1em;
 }
-.marginTop15em{
+
+.marginTop15em {
   margin-top: 15em;
 }
-.marginTop15{
+
+.marginTop15 {
   margin-top: 15px;
 }
-.marginBottom15{
+
+.marginBottom15 {
   margin-bottom: 15px;
 }
 
 .square-box-big {
-  float:left;
+  float: left;
   position: relative;
   width: 14em;
   padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
@@ -185,12 +229,12 @@ svg text {
   margin-left: 1em;
   margin-top: 30px;
   margin-bottom: 1.66%;
-  overflow:hidden;
+  overflow: hidden;
   padding-bottom: 8em; /* = width for a square aspect ratio */
 }
 
 .square-box-small {
-  float:left;
+  float: left;
   position: relative;
   width: 8em;
   /*padding-bottom: 15%; !* = width for a 1:1 aspect ratio *!*/
@@ -198,70 +242,87 @@ svg text {
   margin-left: 1em;
   margin-top: 6em;
   margin-bottom: 1.01%;
-  overflow:hidden;
+  overflow: hidden;
   padding-bottom: 4em; /* = width for a square aspect ratio */
 }
 
-
-.btn-squared-default
-{
+.btn-squared-default {
   width: 150px !important;
   height: 170px !important;
   font-size: 15px;
 }
-.square-position{
+
+.square-position {
   margin-left: 70em;
   margin-top: -17em;
 }
+
 .content {
-  position:absolute;
-  height:7em; /* = 100% - 2*10% padding */
-  width:75%; /* = 100% - 2*5% padding */
+  position: absolute;
+  height: 7em; /* = 100% - 2*10% padding */
+  width: 75%; /* = 100% - 2*5% padding */
   padding: 10% 5%;
 }
 
-.padTop142{
+.padTop142 {
   padding-top: 142px;
 }
-.freq-align{
+
+.freq-align {
   width: 94em;
   margin-left: 1em;
   padding-top: 10em;
 }
+
 .testing-align {
   width: 85em;
   margin-left: 50em;
   border: solid;
-  padding-top: 284px;
+  padding-top: 149px;
 }
-.marginTop{
+
+.marginTop {
   margin-top: 1px;
 }
 
-.security-box{
+.security-box {
   width: 60em;
   margin-right: 1em;
   margin-top: 2em;
 }
 
-.quality-box{
-  width: 60em;
-  margin-right: 1em;
-  margin-top: 2em;
-}
-.freq-box{
-  width: 45em;
-  margin-right: 1em;
-  margin-top: 2em;
-}
-.security-box-align{
+.quality-box {
   width: 60em;
   margin-right: 1em;
   margin-top: 2em;
 }
 
-.testing-box{
+.freq-box {
   width: 45em;
   margin-right: 1em;
   margin-top: 2em;
+}
+
+.security-box-align {
+  width: 60em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.testing-box {
+  width: 45em;
+  margin-right: 1em;
+  margin-top: 2em;
+}
+
+.quality-wlint {
+  padding-top: 14em;
+  margin-left: 1em;
+}
+
+.containerChart {
+  width: 25em;
+  margin-top: -12em;
+  margin-left: 29em;
+
 }
