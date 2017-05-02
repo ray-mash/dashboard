@@ -83,9 +83,7 @@ angular.module('myApp.viewDashboard', ['ngRoute'])
             "unitTotal": response.data.unit.total
           };
 
-          console.log(
-              '$scope.testingMatrix ' + JSON.stringify($scope.testingMatrix, null,
-                  2));
+          console.log('$scope.testingMatrix '+JSON.stringify($scope.testingMatrix, null, 2));
 
         },
         function (error) {

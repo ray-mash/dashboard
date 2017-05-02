@@ -84,7 +84,8 @@ h2 span {
 
 .word-align {
   margin-left: 25em;
-  margin-top: 5em;
+  margin-top: 2em;
+  font-size: 19px;
 }
 
 .marginLeft10em {
@@ -148,8 +149,9 @@ svg text {
 }
 
 .reliable-word {
-  padding-top: 14em;
+  padding-top: 10em;
   margin-left: 2em;
+  font-size: 19px;
 }
 
 .paddingTopSec123px {
@@ -316,8 +318,9 @@ svg text {
 }
 
 .quality-wlint {
-  padding-top: 14em;
+  padding-top: 10em;
   margin-left: 1em;
+  font-size: 19px;
 }
 
 .containerChart {
