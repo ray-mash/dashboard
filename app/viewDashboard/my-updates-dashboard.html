@@ -1,4 +1,4 @@
-<div ng-app="myApp" ng-controller="View1Ctrl">
+<div ng-app="app" ng-controller="MyUpdatesDashBoardCtrl">
   <div class="container" style="background: #030329">
     <h1 class="col-md-10"> MYUPDATES Deployment Pipe Line<span class="btn-group marginLeft7em">
       <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
@@ -10,11 +10,11 @@
       <div class="row marginLeft35px freq-align" style="border: solid;">
         <div id="frequency-chart" class="col-md-7">
           <div class="row">
-            <div id="chart4" class="col-md-4">
+            <div id="merge-chart" class="col-md-4">
               <p class="marginLeft5em">Merge to Trunk</p>
               <svg style="height:190px; width: 300px;"></svg>
             </div>
-            <div id="chart2" class="col-md-5 marginLeft8em">
+            <div id="deploy-chart" class="col-md-5 marginLeft8em">
               <p class="marginLeft5em">Deploys to TEST</p>
               <svg style="height:190px; width: 350px;"></svg>
               <p class="week">Number per week, moving total over the last 3 weeks</p>

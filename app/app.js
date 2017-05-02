@@ -1,10 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('app', [
   'ngRoute',
   // 'myApp.home',
-  'myApp.viewDashboard',
+  'app.viewDashboard',
   // 'myApp.home',
   'myApp.view2',
   'myApp.version'
@@ -12,5 +12,5 @@ angular.module('myApp', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/viewDashboard'});
+  $routeProvider.otherwise({redirectTo: '/my-updates-dashboard'});
 }]);
