@@ -1,6 +1,6 @@
 <div ng-app="app" ng-controller="MyUpdatesDashBoardCtrl">
   <div class="container" style="background: #030329">
-    <h1 class="col-md-10"> MYUPDATES Deployment Pipe Line<span class="btn-group marginLeft7em">
+    <h1 class="col-md-10"> MYUPDATES Deployment Pipeline<span class="btn-group marginLeft7em">
       <button type="button" class="btn btn-default"> {{getDatetime | date:'medium'}}</button></span>
     </h1>
   </div>
@@ -29,7 +29,7 @@
               <div class="col-lg-12 square-position">
                 <div class="btn btn-squared-default btn-default">
                   Days since last <br> successful deploy<br/> to Prod
-                  <h1>{{days}}</h1>Days
+                  <h1>{{numberOfDays}}</h1>Days
                 </div>
               </div>
             </div>
@@ -78,15 +78,13 @@
           </table>
         </div>
       </div>
-      <!--</div>-->
     </section>
   </div>
-
   <div class="row marginTop">
     <section class="col-md-4 security-box-align">
       <h1 class="marginLeft1em">SECURITY</h1>
-      <div class="row marginLeft1em paddingTopSec123px" style="border: solid;">
-        <h2 class="marginLeft8emcis">CIS</h2>
+      <div class="row marginLeft1em paddingTopSec105px" style="border: solid;">
+        <p class="heading-align">CIS</p>
         <div id="security-chart" class="col-xs-2">
           <svg style="height:180px; width: 280px;"></svg>
         </div>
@@ -110,6 +108,7 @@
         </div>
       </div>
     </section>
+
     <section class="col-md-4 security-box">
       <h1><span>RELIABILITY</span></h1>
       <div class="row padTop186px" style="border: solid;">
@@ -154,6 +153,7 @@
     </section>
   </div>
 </div>
+
 
 
 

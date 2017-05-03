@@ -9,6 +9,13 @@ angular.module('app.viewDashboard', ['ngRoute'])
 }])
 .controller('MyUpdatesDashBoardCtrl',
     ['$http', '$scope', function ($http, $scope) {
+      function dateFunc(firstDate) {
+        var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        var dayOne = new Date(firstDate).getTime();
+        var dayTwo = new Date().getTime();
+        return Math.round((dayTwo - dayOne) / oneDay);
+      }
+
       $scope.frequencyData = undefined;
       getFrequencyData();
       var graphColors = ["#2ca02c", "dodgerblue"];
@@ -19,11 +26,8 @@ angular.module('app.viewDashboard', ['ngRoute'])
       $scope.switchStatus = true;
 
       $scope.getDatetime = new Date();
-      $scope.days = 10;
-      $scope.dayLastDeploy = 41;
       lintValues();
       testingValues();
-
       // drawPieChart('security-chart', securityData());
 
       function getFrequencyData() {
@@ -191,8 +195,22 @@ angular.module('app.viewDashboard', ['ngRoute'])
       }
 
       function frequencyProdData() {
+        // console.log('inside Production Data :' + JSON.stringify($scope.prodDeploysData, null, 2));
+
         var newArrayData = [];
         if ($scope.prodDeploysData) {
+          var deploymentDays = [];
+          var temp = 0;
+          Object.keys($scope.prodDeploysData).map(function (key) {
+            if (new Date(key) > new Date(temp)) {
+              if ($scope.prodDeploysData[key].success) {
+                deploymentDays.splice(0, deploymentDays.length);
+                deploymentDays.push(key);
+                temp = key;
+              }
+            }
+          });
+          $scope.numberOfDays = dateFunc(deploymentDays[0]);
           var prod_Array = Object.values($scope.prodDeploysData);
           prod_Array.forEach(function (item) {
             if (item.success) {

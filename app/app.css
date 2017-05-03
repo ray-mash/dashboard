@@ -6,6 +6,18 @@
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }
+
+.circle
+{
+  width:500px;
+  height:500px;
+  border-radius:250px;
+  font-size:50px;
+  color:#fff;
+  line-height:500px;
+  text-align:center;
+  background:#000
+}
 .padTop113px{
   padding-top: 113px;
  }
@@ -81,9 +93,12 @@ h2 span {
   margin-left: 28em;
   margin-top: 1em;
 }
-
+.heading-align {
+  margin-left: 4em;
+  font-size: 25px;
+}
 .word-align {
-  margin-left: 25em;
+  margin-left: 15em;
   margin-top: 2em;
   font-size: 19px;
 }
@@ -154,8 +169,8 @@ svg text {
   font-size: 19px;
 }
 
-.paddingTopSec123px {
-  padding-top: 123px;
+.paddingTopSec105px {
+  padding-top: 105px;
 }
 
 .paddingTop14 {
@@ -170,7 +185,7 @@ svg text {
   margin-left: 7em;
 }
 
-.marginLeft8emcis {
+.mgLeft8em {
   margin-left: -8em;
 }
 
